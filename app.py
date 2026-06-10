@@ -1,0 +1,132 @@
+import streamlit as st
+from utils.ui_components import inject_custom_css, render_sidebar
+
+# Set Page Config
+st.set_page_config(
+    page_title="AI English Tutor - Home",
+    page_icon="🎓",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Inject Custom CSS
+inject_custom_css()
+
+# Render Sidebar
+render_sidebar()
+
+# Homepage Layout
+st.markdown('<div class="main-header">🎓 AI English Tutor Chatbot</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-header">Platform belajar Bahasa Inggris interaktif cerdas didukung oleh Google Gemini AI</div>', unsafe_allow_html=True)
+
+# Introduction section
+st.markdown("""
+<div class="premium-box" style="text-align: center; margin-bottom: 2rem;">
+    <h3>Selamat datang di AI English Tutor! 👋</h3>
+    <p>Website ini dirancang khusus untuk membantu Anda menguasai Bahasa Inggris dengan cara yang interaktif, mudah, dan menyenangkan. 
+    Menggunakan teknologi Large Language Model (LLM) tercanggih, Anda dapat berlatih menulis, memperkaya kosakata, menguji pemahaman lewat kuis, 
+    dan melakukan simulasi percakapan interaktif kapan saja.</p>
+</div>
+""", unsafe_allow_html=True)
+
+# Grid Layout for Features
+st.markdown("### 🛠️ Fitur Pembelajaran")
+
+# We can construct columns for the cards
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown("""
+    <div class="premium-box">
+        <h4 style="color:#38bdf8;">📝 Grammar Correction</h4>
+        <p>Tulis kalimat bahasa Inggris Anda dan biarkan AI mengoreksi serta menjelaskan aturan grammar-nya dalam Bahasa Indonesia.</p>
+        <span style="font-size: 0.85rem; color: #38bdf8; font-weight: 600;">👉 Akses di sidebar: 1_📝_Grammar_Correction</span>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div class="premium-box">
+        <h4 style="color:#38bdf8;">💬 Conversation Practice</h4>
+        <p>Lakukan percakapan dua arah interaktif dengan <strong>Alex</strong>, asisten AI native speaker yang ramah dan suportif.</p>
+        <span style="font-size: 0.85rem; color: #38bdf8; font-weight: 600;">👉 Akses di sidebar: 3_💬_Conversation_Practice</span>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+    <div class="premium-box">
+        <h4 style="color:#38bdf8;">📚 Vocabulary Helper</h4>
+        <p>Temukan makna kata, sinonim, antonim, klasifikasi kata, serta contoh kalimat penggunaan dalam konteks nyata.</p>
+        <span style="font-size: 0.85rem; color: #38bdf8; font-weight: 600;">👉 Akses di sidebar: 2_📚_Vocabulary</span>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div class="premium-box">
+        <h4 style="color:#10b981;">🧩 Quiz Basic English</h4>
+        <p>Uji kemampuan Anda lewat kuis pilihan ganda atau isian kalimat rumpang yang dibuat secara dinamis oleh AI sesuai level Anda.</p>
+        <span style="font-size: 0.85rem; color: #38bdf8; font-weight: 600;">👉 Akses di sidebar: 4_🧩_Quiz</span>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("---")
+
+# Client requirements learning goals check in landing page
+st.markdown("### 🎓 Mengapa Belajar Menggunakan AI?")
+col_edu1, col_edu2, col_edu3 = st.columns(3)
+
+with col_edu1:
+    st.markdown("""
+    <div style="background-color: #131b2e; padding: 1rem; border-radius: 8px; border-left: 3px solid #38bdf8; border-top: 1px solid #1e293b; border-right: 1px solid #1e293b; border-bottom: 1px solid #1e293b;">
+        <h5>🧠 NLP (Natural Language Processing)</h5>
+        <p style="font-size:0.9rem; color:#cbd5e1;">Aplikasi ini memahami bahasa manusia dengan natural, mendeteksi kesalahan kecil pada penulisan secara instan tanpa template kaku.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col_edu2:
+    st.markdown("""
+    <div style="background-color: #131b2e; padding: 1rem; border-radius: 8px; border-left: 3px solid #38bdf8; border-top: 1px solid #1e293b; border-right: 1px solid #1e293b; border-bottom: 1px solid #1e293b;">
+        <h5>🛠️ Prompt Engineering</h5>
+        <p style="font-size:0.9rem; color:#cbd5e1;">Pelajari bagaimana instruksi spesifik (system prompt) dapat merubah perilaku kecerdasan buatan menjadi guru yang bersahabat.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col_edu3:
+    st.markdown("""
+    <div style="background-color: #131b2e; padding: 1rem; border-radius: 8px; border-left: 3px solid #38bdf8; border-top: 1px solid #1e293b; border-right: 1px solid #1e293b; border-bottom: 1px solid #1e293b;">
+        <h5>⚡ LLM (Large Language Model)</h5>
+        <p style="font-size:0.9rem; color:#cbd5e1;">Ditenagai model <strong>Gemini</strong>, Anda akan merasakan pengalaman belajar interaktif seolah berbicara dengan guru privat sungguhan.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Instruction to start
+st.info("💡 **Tips Memulai**: Silakan periksa konfigurasi API Key di sidebar kiri terlebih dahulu, lalu pilih salah satu fitur belajar di menu navigasi sidebar!")
+
+# Deployment Guide Section
+st.markdown("---")
+st.markdown("### 🌐 Panduan Deploy ke Streamlit Cloud")
+with st.expander("🚀 Cara Deploy Aplikasi agar Diakses Publik (Gratis)"):
+    st.markdown("""
+    Anda dapat men-deploy aplikasi ini ke **Streamlit Community Cloud** secara gratis hanya dalam beberapa menit:
+    
+    1. **Upload ke GitHub**:
+       - Buat repository baru di akun GitHub Anda (misal: `chatbot-tutor`).
+       - Unggah seluruh kode proyek ini (termasuk folder `pages`, `utils`, `app.py`, `requirements.txt`, dan `.gitignore`). *Jangan mengunggah folder `venv` atau `.streamlit/secrets.toml` karena sudah otomatis diabaikan oleh `.gitignore`.*
+    
+    2. **Daftar & Hubungkan Akun**:
+       - Masuk ke [share.streamlit.io](https://share.streamlit.io) menggunakan akun GitHub Anda.
+       
+    3. **Deploy Aplikasi**:
+       - Klik tombol **"New app"** di dasbor Streamlit Cloud.
+       - Pilih repository (`chatbot-tutor`), branch (`main`), dan tentukan file utama: `app.py`.
+       
+    4. **Konfigurasi API Key di Cloud**:
+       - Klik **"Advanced settings"** sebelum menekan tombol deploy.
+       - Di kolom **Secrets**, ketikkan konfigurasi API Key Anda seperti berikut:
+         ```toml
+         GEMINI_API_KEY = "MASUKKAN_API_KEY_GEMINI_ANDA_DI_SINI"
+         GEMINI_MODEL = "gemini-2.5-flash"
+         ```
+       - Klik **Save** lalu klik **Deploy**. Aplikasi Anda akan aktif secara publik!
+    """)
+
